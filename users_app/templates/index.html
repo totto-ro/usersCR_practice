@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./../static/css/style.css') }}">
+    <link rel="stylesheet" href="./../static/css/style.css">
+    <title>All Users</title>
+</head>
+<body>
+    <main>
+        <h1>Here are our usesrs!!!</h1>
+        <form action="/users/createNewUser">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Created at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td class="b1">
+                            {{ user.user_id }}
+                        </td>
+                        <td class="b2">
+                            {{ user.first_name }}
+                        </td>
+                        <td class="b3">
+                            {{ user.last_name }}
+                        </td>
+                        <td class="b4">
+                            {{ user.email }}
+                        </td>
+                        <td class="b5">
+                            {{ user.created_at }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit">
+                Add User
+            </button>
+        </form>
+    </main>
+</body>
+</html>
